@@ -31,11 +31,11 @@ endif
 
 let s:phpcbf_switches = ['-n', '-w', '-l', '-i', '-d', '--no-patch']
 
-function! s:phpcbfSwitches(...)
+function! s:PhpcbfSwitches(...)
   return join(s:phpcbf_switches, "\n")
 endfunction
 
-function! s:phpcbf(current_args)
+function! s:Phpcbf(current_args)
   let l:extra_args     = g:vimphpcbf_extra_args
   let l:filename       = @%
   let l:phpcbf_cmd    = g:vimphpcbf_phpcbf_cmd
@@ -48,11 +48,11 @@ function! s:phpcbf(current_args)
   copen
 endfunction
 
-command! -complete=custom,s:phpcbfSwitches -nargs=? phpcbf :call <SID>phpcbf(<q-args>)
+command! -complete=custom,s:phpcbfSwitches -nargs=? Phpcbf :call <SID>Phpcbf(<q-args>)
 
 " Shortcuts for phpcbf
 if g:vimphpcbf_keymap == 1
-  nmap <Leader>bf :phpcbf<CR>
+  nmap <Leader>bf :Phpcbf<CR>
 endif
 
 let &cpo = s:save_cpo
